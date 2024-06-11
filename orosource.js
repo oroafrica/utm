@@ -11,13 +11,15 @@
 
         let urlParams = new URL(document.location).searchParams;
         let name = urlParams.get("utm_source");
-        localStorage.setItem("params", name);
+        window.localStorage.setItem("params", JSON.stringify({name}));
         log("target: ", name);
         log("host: ", searchParams);
 
         let _email = document.querySelector(".utm_email");
         let _phone = document.querySelector(".utm_phone");
-        log(_email, " — ", _phone);
+        log(_email.innerText, " — ", _phone.innerText);
+        _email.innerText = "misty@blues.com";
+        _phone.innerText = "+41 25698 4589";
     };
 
     document.addEventListener('DOMContentLoaded', processLocation);
