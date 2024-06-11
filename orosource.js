@@ -12,4 +12,3 @@
     log("target: ",name);
 }
 )()
-new URLSearchParams(window.location.search)
