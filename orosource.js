@@ -1,7 +1,7 @@
 (async () => {
     const { log, error } = console;
 
-    log("loading orosource: https://oroafrica.github.io/utm/orosource.js v2.00");
+    log("loading orosource: https://oroafrica.github.io/utm/orosource.js v2.10");
 
     const processLocation = () => 
     {
