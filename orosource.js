@@ -36,7 +36,8 @@
 
     document.addEventListener('DOMContentLoaded', processLocation);
     window.addEventListener('hashchange', processLocation);
-    window.addEventListener('popstate', handleLocationChange);
-    window.addEventListener('pushstate', handleLocationChange);
-    window.addEventListener('replacestate', handleLocationChange);
+
+    window.addEventListener('popstate', processLocation);
+    window.addEventListener('pushstate', processLocation);
+    window.addEventListener('replacestate', processLocation);
 })();
