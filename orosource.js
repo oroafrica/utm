@@ -10,5 +10,9 @@
     let name = params.get("utm_source")
     localStorage.setItem("params",name);
     log("target: ",name);
+    log("host: ",searchParams);
+    let _email = document.querySelector("utm_email");
+    let _phone = document.querySelector("utm_phone");
+    log(_email," — ", _phone);
 }
 )()
