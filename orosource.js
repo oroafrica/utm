@@ -1,7 +1,7 @@
 (async () => {
     const { log, error } = console;
 
-    log("loading orosource: https://oroafrica.github.io/utm/orosource.js v1.00");
+    log("loading orosource: https://oroafrica.github.io/utm/orosource.js v2.00");
 
     const processLocation = () => 
     {
@@ -29,6 +29,9 @@
         _email.innerText = affiliate(params.utm_source).email;
         _phone.innerText = affiliate(params.utm_source).phone;
         _profile.src = affiliate(params.utm_source).profile;
+    };
+    const handleLocationChange = () => {
+        processLocation();
     };
 
     document.addEventListener('DOMContentLoaded', processLocation);
