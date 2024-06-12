@@ -1,4 +1,6 @@
+window.addEventListener('load', function() {
 (async () => {
+( () => {
     const { log, error } = console;
 
     log("loading orosource: https://oroafrica.github.io/utm/orosource.js v2.10");
@@ -41,3 +43,6 @@
     window.addEventListener('pushstate', processLocation);
     window.addEventListener('replacestate', processLocation);
 })();
+      // Your IIFE code here
+    })();
+});
