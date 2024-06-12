@@ -3,7 +3,7 @@ window.addEventListener('load', function() {
 ( () => {
     const { log, error } = console;
 
-    log("loading orosource: https://oroafrica.github.io/utm/orosource.js v2.10");
+    log("loading orosource: https://oroafrica.github.io/utm/orosource.js v2.20");
 
     const processLocation = () => 
     {
