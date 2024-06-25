@@ -1,10 +1,24 @@
 ( async () => {
-    const { log, error } = console;
+    
+    const debug = true;
 
-    log("loading orosource: https://oroafrica.github.io/utm/orosource.js v2.40");
+    const log = (msg,err=false)=>
+    {
+        if(!debug) return;
+        console.log("DEV: ", msg);
+    };
+
+    log("loading orosource: https://oroafrica.github.io/utm/orosource.js v2.41","\n","capture affiliate name");
 
     const processLocation = () => 
     {
+        const payload = {};
+
+        let lastPathSegment = window.location.pathname.split('/').filter(Boolean).pop() || '';
+        lastPathSegment = lastPathSegment.replace(/\.html$/, '');
+        payload.affiliate = lastPathSegment;
+        payload.home = window.location.href
+
         const searchParams = new URLSearchParams(window.location.search);
         let params = {};
         searchParams.forEach((value, key) => { params[key] = decodeURIComponent(value); });
@@ -22,16 +36,23 @@
             return obj.filter(n=> n.name == key)[0];
         };
 
-        let _email = document.querySelector(".utm_email");
-        let _phone = document.querySelector(".utm_phone");
-        let _profile = document.querySelector(".utm_profile");
+        // let _email = document.querySelector(".utm_email");
+        // let _phone = document.querySelector(".utm_phone");
+        // let _profile = document.querySelector(".utm_profile");
 
-        _email.innerText = affiliate(params.utm_source).email;
-        _phone.innerText = affiliate(params.utm_source).phone;
-        _profile.src = affiliate(params.utm_source).profile;
-    };
-    const handleLocationChange = () => {
-        processLocation();
+        // _email.innerText = affiliate(params.utm_source)?.email;
+        // _phone.innerText = affiliate(params.utm_source)?.phone;
+        // _profile.src = affiliate(params.utm_source)?.profile;
+        if(window.localStorage)
+        { 
+            let a = window.localStorage.getItem("params");
+            // let b = parseJSON(a);
+        }
+        // const h1Element = document.createElement('h1');
+        // h1Element.textContent = JSON.stringify(p);
+        // document.body.appendChild(h1Element);
+
+        log(JSON.stringify(payload, null, 2));
     };
 
     document.addEventListener('DOMContentLoaded', processLocation);
