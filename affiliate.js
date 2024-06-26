@@ -5,7 +5,7 @@
 
     const log = (msg)=>(debug) ? console.log("DEV: ", msg) : null;
 
-    log("loading orosource: https://oroafrica.github.io/utm/affiliate.js v1.0.0","\n","capture affiliate name");
+    log("loading orosource: https://oroafrica.github.io/utm/affiliate.js v1.0.1");
 
     const processLocation = () => 
     {
