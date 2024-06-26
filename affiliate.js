@@ -15,6 +15,8 @@
         lastPathSegment = lastPathSegment.replace(/\.html$/, '');
         payload.affiliate = lastPathSegment;
         payload.home = window.location.href
+        payload.tel = document.querySelector(".__cf_tel__");
+        payload.email = document.querySelector(".__cf_email__");
 
         const searchParams = new URLSearchParams(window.location.search);
         let params = {};
