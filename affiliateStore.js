@@ -23,10 +23,11 @@
             const telElement = document.querySelector(".__cf_tel__");
             const emailElement = document.querySelector(".__cf_email__");
             
-            if (telElement) telElement.textContent = storage.tel || "+27 (0) 21 480 9860";
-            if (emailElement) emailElement.textContent = storage.email || "orders@oroafrica.com";
+            if (telElement) telElement.textContent = storage.payload.tel || "+27 (0) 21 480 9860";
+            if (emailElement) emailElement.textContent = storage.payload.email || "orders@oroafrica.com";
             
-            log(JSON.stringify(payload, null, 2), " :source data");
+            log(JSON.stringify(storage.email, null, 2));
+            log(JSON.stringify(storage.payload.email, null, 2));
         } else {
             log("Error on localStorage!");
         }
