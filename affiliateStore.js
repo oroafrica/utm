@@ -28,8 +28,8 @@
         const storage = JSON.parse(window.localStorage.getItem(KEYS));
         if(typeof storage === "object" || storage !== undefined)
         {
-            document.querySelector(".__cf_tel__").textContent = (storage.tel === "") ? storage.tel : "+27 (0) 21 480 9860";
-            document.querySelector(".__cf_email__").textContent = (storage.email === "") ? storage.email : "orders@oroafrica.com";
+            document.querySelector(".__cf_tel__")?.textContent = (storage.tel !== undefined) ? storage.tel : "+27 (0) 21 480 9860";
+            document.querySelector(".__cf_email__")?.textContent = (storage.email !== undefined) ? storage.email : "orders@oroafrica.com";
             log(JSON.stringify(payload, null, 2) , " :source data");
         }
         else 
