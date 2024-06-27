@@ -9,7 +9,7 @@
 
     const processLocation = async () => 
     {
-        const payload = {"script":"affiliate.js","version":"1.0.0"};
+        const payload = {"script":"affiliate.js","version":"1.0.1"};
 
         let lastPathSegment = window.location.pathname.split('/').filter(Boolean).pop() || '';
         lastPathSegment = lastPathSegment.replace(/\.html$/, '');
