@@ -5,7 +5,7 @@
 
     const log = (msg)=>(debug) ? console.log("DEV: ", msg) : null;
 
-    log("loading orosource: https://oroafrica.github.io/utm/affiliateStore.js v1.0.0");
+    log("loading orosource: https://oroafrica.github.io/utm/affiliateStore.js v2.0.0");
 
     const processStore = async () => 
     {
@@ -15,19 +15,21 @@
         lastPathSegment = lastPathSegment.replace(/\.html$/, '');
         payload.affiliate = lastPathSegment;
         payload.home = window.location.href
-        // payload.tel = document.querySelector(".__cf_tel__").textContent;
-        // payload.email = document.querySelector(".__cf_email__").textContent;
+        payload.tel = document.querySelector(".__cf_tel_client__").textContent;
+        payload.email = document.querySelector(".__cf_email_client__").textContent;
 
         const searchParams = new URLSearchParams(window.location.search);
         let params = {};
         searchParams.forEach((value, key) => { params[key] = decodeURIComponent(value); });
         payload.params= params;
+        window.localStorage.setItem(KEYS, JSON.stringify({payload}));
+
 
         const storage = JSON.parse(window.localStorage.getItem(KEYS));
         if(typeof storage === "object" || storage !== undefined)
         {
-            document.querySelector(".__cf_tel__").textContent = storage.tel;
-            document.querySelector(".__cf_email__").textContent = storage.email;
+            document.querySelector(".__cf_tel__").textContent = (storage.tel === "") ? storage.tel : "+27 (0) 21 480 9860";
+            document.querySelector(".__cf_email__").textContent = (storage.email === "") ? storage.email : "orders@oroafrica.com";
             log(JSON.stringify(payload, null, 2) , " :source data");
         }
         else 
