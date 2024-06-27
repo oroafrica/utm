@@ -16,7 +16,7 @@
             params: Object.fromEntries(new URLSearchParams(window.location.search))
         };
     
-        window.localStorage.setItem(KEYS, JSON.stringify({ payload }));
+        // window.localStorage.setItem(KEYS, JSON.stringify({ payload }));
     
         const storage = JSON.parse(window.localStorage.getItem(KEYS));
         if (storage && typeof storage === "object") {
