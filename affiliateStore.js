@@ -5,7 +5,7 @@
 
     const log = (msg)=>(debug) ? console.log("DEV: ", msg) : null;
 
-    log("loading orosource: https://oroafrica.github.io/utm/affiliate.js v1.0.1");
+    log("loading orosource: https://oroafrica.github.io/utm/affiliateStore.js v1.0.0");
 
     const processLocation = async () => 
     {
@@ -23,9 +23,11 @@
         searchParams.forEach((value, key) => { params[key] = decodeURIComponent(value); });
         payload.params= params;
 
-        window.localStorage.setItem(KEYS, JSON.stringify({payload}));
+        const storage = JSON.parse(window.localStorage.getItem(KEYS));
+        document.querySelector(".__cf_tel__").textContent = storage.tel;
+        document.querySelector(".__cf_email__").textContent = storage.email;
+        log(JSON.stringify(payload, null, 2) , " :historical");
 
-        log(JSON.stringify(payload, null, 2));
     };
 
     document.addEventListener('DOMContentLoaded', processLocation);
