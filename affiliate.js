@@ -15,16 +15,15 @@
         lastPathSegment = lastPathSegment.replace(/\.html$/, '');
         payload.affiliate = lastPathSegment;
         payload.home = window.location.href
-        payload.tel = document.querySelector(".__cf_tel_client__").textContent;
-        payload.email = document.querySelector(".__cf_email_client__").textContent;
+        payload.email = document.querySelector(".__cf_email__")?.textContent || "";
+        payload.tel =  document.querySelector(".__cf_tel__")?.textContent || "";
 
         const searchParams = new URLSearchParams(window.location.search);
         let params = {};
         searchParams.forEach((value, key) => { params[key] = decodeURIComponent(value); });
         payload.params= params;
 
-        payload.email = document.querySelector(".__cf_email__")?.textContent || "";
-        payload.tel =  document.querySelector(".__cf_tel__")?.textContent || "";
+        
 
         window.localStorage.setItem(KEYS, JSON.stringify({payload}));
 
