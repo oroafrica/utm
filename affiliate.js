@@ -5,7 +5,7 @@
 
     const log = (msg)=>(debug) ? console.log("DEV: ", msg) : null;
 
-    log("loading orosource: https://oroafrica.github.io/utm/affiliate.js v1.0.0","\n","capture affiliate name");
+    log("loading orosource: https://oroafrica.github.io/utm/affiliate.js v2.0.0","\n","capture affiliate name");
 
     const processLocation = () => 
     {
@@ -20,6 +20,9 @@
         let params = {};
         searchParams.forEach((value, key) => { params[key] = decodeURIComponent(value); });
         payload.params= params;
+
+        payload.email = document.querySelector(".__cf_email__")?.textContent || "";
+        payload.tel =  document.querySelector(".__cf_tel__")?.textContent || "";
 
         window.localStorage.setItem(KEYS, JSON.stringify({payload}));
 
