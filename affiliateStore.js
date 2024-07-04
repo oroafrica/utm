@@ -32,9 +32,20 @@
 
             Object.entries(elements).forEach(([key, element]) => 
             {
-                if (element) { element.textContent = storage.payload[key] || DEFAULT_VALUES[key]; }
+                if (element) 
+                { 
+                    if(element.tagName ==="a")
+                    {
+                        element.href = storage.payload[key] || DEFAULT_VALUES[key]; 
+                        element.textContent = "home"; 
+                    }
+                    else
+                    {
+                        element.textContent = storage.payload[key] || DEFAULT_VALUES[key];     
+                    }
+                }
             });
-  
+           
             log(JSON.stringify(storage, null, 2));
         } 
         else 
