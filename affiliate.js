@@ -17,6 +17,8 @@
         payload.home = window.location.href
         payload.email = document.querySelector(".__cf_email__")?.textContent || "";
         payload.tel =  document.querySelector(".__cf_tel__")?.textContent || "";
+        payload.logo =  document.querySelector(".__cf_logo__")?.textContent || "";
+        payload.home =  document.querySelector(".__cf_home__")?.textContent || "";
 
         const searchParams = new URLSearchParams(window.location.search);
         let params = {};
@@ -26,6 +28,7 @@
         
 
         window.localStorage.setItem(KEYS, JSON.stringify({payload}));
+        window.sessionStorage.setItem(KEYS, JSON.stringify({payload}));
 
         log(JSON.stringify(payload, null, 2));
     };
