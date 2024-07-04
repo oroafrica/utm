@@ -2,7 +2,7 @@
     
     const debug = true;
     const KEYS = "affiliate";
-    const VERSION = "2.0.0";
+    const VERSION = "2.0.1";
     const DEFAULT_VALUES = 
     {
         tel: "+27 (0) 21 480 9860",
