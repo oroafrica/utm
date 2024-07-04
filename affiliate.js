@@ -17,6 +17,7 @@
         payload.tel =  document.querySelector(".__cf_tel__")?.textContent || "";
         payload.logo =  document.querySelector(".__cf_logo__")?.textContent || "";
         payload.home =  document.querySelector(".__cf_home__")?.href || "";
+        payload.encrypt= false;
         //scrape search params in event we add additional information
         const searchParams = new URLSearchParams(window.location.search);
         let params = {};
