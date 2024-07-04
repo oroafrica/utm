@@ -34,10 +34,11 @@
             {
                 if (element) 
                 { 
-                    if(element.tagName ==="a")
+                    if(element.tagName === "a")
                     {
                         element.href = storage.payload[key] || DEFAULT_VALUES[key]; 
                         element.textContent = "home"; 
+                        log(`setting anchor: ${element.textContent} ${element.href}`)
                     }
                     else
                     {
