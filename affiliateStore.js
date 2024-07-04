@@ -2,7 +2,7 @@
     
     const debug = true;
     const KEYS = "affiliate";
-    const VERSION = "2.0.4";
+    const VERSION = "2.0.5";
     const DEFAULT_VALUES = 
     {
         tel: "+27 (0) 21 480 9860",
@@ -30,23 +30,28 @@
                 logo: document.querySelector(".__cf_logo__")
             };
 
-            Object.entries(elements).forEach(([key, element]) => 
-            {
-                if (element) 
-                { 
-                    if(element.tagName === "a" || element.tagName === "A")
-                    {
-                        element.href = storage.payload[key] || DEFAULT_VALUES[key]; 
-                        // element.querySelector('span').textContent = "home"; 
-                        log(`setting anchor: ${element.textContent} ${element.href}`)
-                    }
-                    else
-                    {
-                        // log(`setting element: ${key} ${storage.payload[key]}`)
-                        element.textContent = storage.payload[key] || DEFAULT_VALUES[key];     
-                    }
-                }
-            });
+            elements.tel.textContent = (elements) && storage.payload["tel"] || DEFAULT_VALUES["tel"]; 
+            elements.email.textContent = (elements) && storage.payload["email"] || DEFAULT_VALUES["email"]; 
+            elements.home.href = (elements) && storage.payload["home"] || DEFAULT_VALUES["home"]; 
+            elements.logo.href = (elements) && storage.payload["logo"] || DEFAULT_VALUES["logo"]; 
+
+            // Object.entries(elements).forEach(([key, element]) => 
+            // {
+            //     if (element) 
+            //     { 
+            //         if(element.tagName === "a" || element.tagName === "A")
+            //         {
+            //             element.href = storage.payload[key] || DEFAULT_VALUES[key]; 
+            //             // element.querySelector('span').textContent = "home"; 
+            //             log(`setting anchor: ${element.textContent} ${element.href}`)
+            //         }
+            //         else
+            //         {
+            //             // log(`setting element: ${key} ${storage.payload[key]}`)
+            //             element.textContent = storage.payload[key] || DEFAULT_VALUES[key];     
+            //         }
+            //     }
+            // });
            
             log(JSON.stringify(storage, null, 2));
         } 
