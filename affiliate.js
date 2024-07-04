@@ -2,7 +2,7 @@
     
     const debug = true;
     const KEYS = "affiliate";
-    const VERSION = "2.0.0";
+    const VERSION = "2.0.1";
     const log = (msg)=>(debug) ? console.log("DEBUG MODE: ", msg) : null;
 
     const processLocation = async () => 
@@ -21,8 +21,8 @@
         //scrape search params in event we add additional information
         const searchParams = new URLSearchParams(window.location.search);
         let params = {};
-        searchParams.forEach((value, key) => { params[key] = decodeURIComponent(value); });
-        payload.params= params;
+        // searchParams.forEach((value, key) => { params[key] = decodeURIComponent(value); });
+        payload.params= Object.fromEntries(new URLSearchParams(window.location.search));
         //load to both storage providers to test persistence
         window.localStorage.setItem(KEYS, JSON.stringify({payload}));
         window.sessionStorage.setItem(KEYS, JSON.stringify({payload}));

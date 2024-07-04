@@ -1,14 +1,9 @@
 ( async () => {
     
     const debug = true;
-
-    const log = (msg,err=false)=>
-    {
-        if(!debug) return;
-        console.log("DEV: ", msg);
-    };
-
-    log("loading orosource: https://oroafrica.github.io/utm/orosource.js v2.41","\n","capture affiliate name");
+    const KEYS = "jonline";
+    const VERSION = "1.0.0";
+    const log = (msg)=>(debug) ? console.log("DEBUG MODE: ", msg) : null;
 
     const processLocation = () => 
     {
