@@ -1,7 +1,7 @@
 ( async () => {
     
     const debug = true;
-    const KEYS = "affiliateStore";
+    const KEYS = "affiliate";
     const VERSION = "2.0.0";
     const DEFAULT_VALUES = 
     {
@@ -15,7 +15,7 @@
     const processStore = () => 
     {
         const payload = {"script":`${KEYS}`,"version":`${VERSION}`,"default":`${JSON.stringify(DEFAULT_VALUES)}`};
-        
+
         log(JSON.stringify(payload, null, 2));
         //collect data from local storage
         const storage = JSON.parse(window.localStorage.getItem(KEYS));
