@@ -2,7 +2,7 @@
     
     const debug = true;
     const KEYS = "affiliate";
-    const VERSION = "2.0.3";
+    const VERSION = "2.0.4";
     const DEFAULT_VALUES = 
     {
         tel: "+27 (0) 21 480 9860",
@@ -34,15 +34,15 @@
             {
                 if (element) 
                 { 
-                    if(element.tagName === "a")
+                    if(element.tagName === "a" || element.tagName === "A")
                     {
                         element.href = storage.payload[key] || DEFAULT_VALUES[key]; 
-                        element.querySelector('span').textContent = "home"; 
+                        // element.querySelector('span').textContent = "home"; 
                         log(`setting anchor: ${element.textContent} ${element.href}`)
                     }
                     else
                     {
-                        log(`setting element: ${key} ${storage.payload[key]}`)
+                        // log(`setting element: ${key} ${storage.payload[key]}`)
                         element.textContent = storage.payload[key] || DEFAULT_VALUES[key];     
                     }
                 }
