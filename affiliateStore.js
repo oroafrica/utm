@@ -37,11 +37,12 @@
                     if(element.tagName === "a")
                     {
                         element.href = storage.payload[key] || DEFAULT_VALUES[key]; 
-                        element.textContent = "home"; 
+                        element.querySelector('span').textContent = "home"; 
                         log(`setting anchor: ${element.textContent} ${element.href}`)
                     }
                     else
                     {
+                        log(`setting element: ${key} ${storage.payload[key]}`)
                         element.textContent = storage.payload[key] || DEFAULT_VALUES[key];     
                     }
                 }
