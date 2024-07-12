@@ -36,25 +36,6 @@
             elements.home.href = (elements) && storage.payload["home"] || DEFAULT_VALUES["home"]; 
             elements.logo.src = (elements) && storage.payload["logo"] || DEFAULT_VALUES["logo"]; 
             elements.feature.src = (elements) && storage.payload["banner"] || DEFAULT_VALUES["banner"]; 
-            // elements.banner.src = (elements) && storage.payload["banner"] || DEFAULT_VALUES["banner"]; 
-
-            // Object.entries(elements).forEach(([key, element]) => 
-            // {
-            //     if (element) 
-            //     { 
-            //         if(element.tagName === "a" || element.tagName === "A")
-            //         {
-            //             element.href = storage.payload[key] || DEFAULT_VALUES[key]; 
-            //             // element.querySelector('span').textContent = "home"; 
-            //             log(`setting anchor: ${element.textContent} ${element.href}`)
-            //         }
-            //         else
-            //         {
-            //             // log(`setting element: ${key} ${storage.payload[key]}`)
-            //             element.textContent = storage.payload[key] || DEFAULT_VALUES[key];     
-            //         }
-            //     }
-            // });
            
             log(JSON.stringify(storage, null, 2));
         } 
