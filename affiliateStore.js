@@ -28,14 +28,15 @@
                 email: document.querySelector(".__cf_email__"),
                 home: document.querySelector(".__cf_home__"),
                 logo: document.querySelector(".__cf_logo__"),
-                feature: document.querySelector(".ty-logo-container__image")?.href || ""
+                feature: document.querySelector(".ty-logo-container__image")
             };
 
             elements.tel.textContent = (elements) && storage.payload["tel"] || DEFAULT_VALUES["tel"]; 
             elements.email.textContent = (elements) && storage.payload["email"] || DEFAULT_VALUES["email"]; 
             elements.home.href = (elements) && storage.payload["home"] || DEFAULT_VALUES["home"]; 
             elements.logo.src = (elements) && storage.payload["logo"] || DEFAULT_VALUES["logo"]; 
-            elements.feature.src = (elements) && storage.payload["feature"] || DEFAULT_VALUES["feature"]; 
+            elements.feature.src = (elements) && storage.payload["banner"] || DEFAULT_VALUES["banner"]; 
+            // elements.banner.src = (elements) && storage.payload["banner"] || DEFAULT_VALUES["banner"]; 
 
             // Object.entries(elements).forEach(([key, element]) => 
             // {
