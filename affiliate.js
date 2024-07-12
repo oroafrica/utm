@@ -18,7 +18,7 @@
         payload.logo =  document.querySelector(".__cf_logo__")?.src || "";
         payload.home =  document.querySelector(".__cf_home__")?.href || "";
         payload.feature =  document.querySelector(".ty-logo-container__image")?.src || "";
-        payload.banner =  `https://oroafrica.github.io/utm/images/feature_${payload.affiliate}.png`;
+        payload.banner =  `https://oroafrica.github.io/utm/images/feature_${payload.affiliate}.svg`;
         payload.encrypt= false;
 
         //load to both storage providers to test persistence: ty-logo-container__image
