@@ -33,7 +33,7 @@
             elements.tel.textContent = (elements) && storage.payload["tel"] || DEFAULT_VALUES["tel"]; 
             elements.email.textContent = (elements) && storage.payload["email"] || DEFAULT_VALUES["email"]; 
             elements.home.href = (elements) && storage.payload["home"] || DEFAULT_VALUES["home"]; 
-            elements.logo.href = (elements) && storage.payload["logo"] || DEFAULT_VALUES["logo"]; 
+            elements.logo.src = (elements) && storage.payload["logo"] || DEFAULT_VALUES["logo"]; 
 
             // Object.entries(elements).forEach(([key, element]) => 
             // {
