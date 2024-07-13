@@ -49,7 +49,7 @@
            
             log(JSON.stringify(storage, null, 2));
         } 
-        else 
+        else if(true)
         {
             log("Attempt to scrape affiliate details!");
             //get host
