@@ -70,11 +70,11 @@
                         feature: document.querySelector(".ty-logo-container__image")
                     };
 
-                    elements.tel.textContent = (elements) && storage.payload["tel"] || DEFAULT_VALUES["tel"]; 
-                    elements.email.textContent = (elements) && storage.payload["email"] || DEFAULT_VALUES["email"]; 
-                    elements.home.href = (elements) && storage.payload["home"] || DEFAULT_VALUES["home"]; 
-                    elements.logo.src = (elements) && storage.payload["logo"] || DEFAULT_VALUES["logo"]; 
-                    elements.feature.src = (elements) && storage.payload["banner"] || DEFAULT_VALUES["banner"]; 
+                    elements.tel.textContent = (elements) && elements.payload["tel"] || DEFAULT_VALUES["tel"]; 
+                    elements.email.textContent = (elements) && elements.payload["email"] || DEFAULT_VALUES["email"]; 
+                    elements.home.href = (elements) && elements.payload["home"] || DEFAULT_VALUES["home"]; 
+                    elements.logo.src = (elements) && elements.payload["logo"] || DEFAULT_VALUES["logo"]; 
+                    elements.feature.src = (elements) && elements.payload["banner"] || DEFAULT_VALUES["banner"]; 
                     window.localStorage.setItem("api", JSON.stringify({elements}))
                 
                 });
