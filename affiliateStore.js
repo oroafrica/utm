@@ -57,7 +57,27 @@
             log(host)
             await fetch(host, { method: 'GET',"content-type": "text/html","mode": "no-cors" })
             .then(d => d.text())
-            .then(data => window.localStorage.setItem("test", JSON.stringify({data})));
+            .then(data => 
+                {
+                    const parser = new DOMParser();
+                    const document = parser.parseFromString(data, 'text/html');
+                    const elements = 
+                    {
+                        tel: document.querySelector(".__cf_tel__"),
+                        email: document.querySelector(".__cf_email__"),
+                        home: document.querySelector(".__cf_home__"),
+                        logo: document.querySelector(".__cf_logo__"),
+                        feature: document.querySelector(".ty-logo-container__image")
+                    };
+
+                    elements.tel.textContent = (elements) && storage.payload["tel"] || DEFAULT_VALUES["tel"]; 
+                    elements.email.textContent = (elements) && storage.payload["email"] || DEFAULT_VALUES["email"]; 
+                    elements.home.href = (elements) && storage.payload["home"] || DEFAULT_VALUES["home"]; 
+                    elements.logo.src = (elements) && storage.payload["logo"] || DEFAULT_VALUES["logo"]; 
+                    elements.feature.src = (elements) && storage.payload["banner"] || DEFAULT_VALUES["banner"]; 
+                    window.localStorage.setItem("api", JSON.stringify({elements}))
+                
+                });
 
             //scrape host url
             //save to local storage
