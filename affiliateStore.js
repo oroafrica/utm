@@ -63,18 +63,18 @@
                     const document = parser.parseFromString(data, 'text/html');
                     const elements = 
                     {
-                        tel: document.querySelector(".__cf_tel__"),
-                        email: document.querySelector(".__cf_email__"),
-                        home: document.querySelector(".__cf_home__"),
-                        logo: document.querySelector(".__cf_logo__"),
-                        feature: document.querySelector(".ty-logo-container__image")
+                        tel: document.querySelector(".__cf_tel__")?.textContent,
+                        email: document.querySelector(".__cf_email__")?.textContent,
+                        home: document.querySelector(".__cf_home__")?.href,
+                        logo: document.querySelector(".__cf_logo__")?.src,
+                        feature: document.querySelector(".ty-logo-container__image")?.src
                     };
 
-                    elements.tel.textContent = (elements) && elements.payload["tel"] || DEFAULT_VALUES["tel"]; 
-                    elements.email.textContent = (elements) && elements.payload["email"] || DEFAULT_VALUES["email"]; 
-                    elements.home.href = (elements) && elements.payload["home"] || DEFAULT_VALUES["home"]; 
-                    elements.logo.src = (elements) && elements.payload["logo"] || DEFAULT_VALUES["logo"]; 
-                    elements.feature.src = (elements) && elements.payload["banner"] || DEFAULT_VALUES["banner"]; 
+                    // elements.tel.textContent = (elements) && elements.payload["tel"] || DEFAULT_VALUES["tel"]; 
+                    // elements.email.textContent = (elements) && elements.payload["email"] || DEFAULT_VALUES["email"]; 
+                    // elements.home.href = (elements) && elements.payload["home"] || DEFAULT_VALUES["home"]; 
+                    // elements.logo.src = (elements) && elements.payload["logo"] || DEFAULT_VALUES["logo"]; 
+                    // elements.feature.src = (elements) && elements.payload["banner"] || DEFAULT_VALUES["banner"]; 
                     window.localStorage.setItem("api", JSON.stringify({elements}));
                 
                 });
