@@ -8,11 +8,21 @@
         tel: "+27 (0) 21 480 9860",
         email: "orders@oroafrica.com",
         home: "https://www.j-online.co.za",
-        logo: "https://www.oroafrica.com/images/logos/1/OA_elongated_logo.png"
+        logo: "https://www.oroafrica.com/images/logos/1/OA_elongated_logo.png",
+        banner:"https://www.j-online.co.za/images/logos/211/J_Online_logo-1.png"
     };
     const log = (msg)=>(debug) ? console.log("DEBUG MODE: ", msg) : null;
 
-    const processStore = () => 
+    const domainFromUrl=()=> 
+    {
+        const url = "https://www.j-online.co.za/kara/"; //window.location.pathname;
+        let lastPathSegment = url.split('/').filter(Boolean).pop() || '';
+        lastPathSegment = lastPathSegment.replace(/\.html$/, '');
+        const _affiliate = lastPathSegment;
+        const domain = "https://www.j-online.co.za/";
+        return domain.concat(`${_affiliate}/`); 
+    }
+    const processStore = async () => 
     {
         const payload = {"script":`${KEYS}`,"version":`${VERSION}`,"default":`${JSON.stringify(DEFAULT_VALUES)}`};
 
@@ -39,10 +49,21 @@
            
             log(JSON.stringify(storage, null, 2));
         } 
-        else 
-        {
+        // else 
+        // {
+            log("Attempt to scrape affiliate details!");
+            //get host
+            const host = domainFromUrl();
+            log(host)
+            await fetch(host, { method: 'GET',"content-type": "text/html","mode": "no-cors" })
+            .then(d => d.text())
+            .then(data => window.localStorage.setItem("test", JSON.stringify({data})));
+
+            //scrape host url
+            //save to local storage
+
             log("Error on localStorage!");
-        }
+        // }
     };
     
 
