@@ -49,13 +49,14 @@
            
             log(JSON.stringify(storage, null, 2));
         } 
-        // else 
-        // {
+        else 
+        {
             log("Attempt to scrape affiliate details!");
             //get host
             const host = domainFromUrl();
+            const _csrf = document.querySelector('input[name="security_hash"][type="hidden"]');
             log(host)
-            await fetch(host, { method: 'GET',"content-type": "text/html","mode": "no-cors" })
+            await fetch(host, { method: 'GET',"content-type": "text/html","mode": "no-cors",headers:{"X-CSRF-Token":_csrf} })
             .then(d => d.text())
             .then(data => 
                 {
@@ -64,26 +65,15 @@
                     const elements = 
                     {
                         tel: document.querySelector(".__cf_tel__")?.textContent,
-                        email: document.querySelector(".__cf_email__")?.textContent,
+                        email: document.querySelector(".__cf_email__")?.textContent.replace(/\[at\]/g, '@').replace(/\[dot\]/g, '.'),
                         home: document.querySelector(".__cf_home__")?.href,
                         logo: document.querySelector(".__cf_logo__")?.src,
-                        feature: document.querySelector(".ty-logo-container__image")?.src
+                        feature: document.querySelector(".ty-logo-container__image")?.src,
+                        csrf: document.querySelector('input[name="security_hash"][type="hidden"]').value
                     };
-
-                    // elements.tel.textContent = (elements) && elements.payload["tel"] || DEFAULT_VALUES["tel"]; 
-                    // elements.email.textContent = (elements) && elements.payload["email"] || DEFAULT_VALUES["email"]; 
-                    // elements.home.href = (elements) && elements.payload["home"] || DEFAULT_VALUES["home"]; 
-                    // elements.logo.src = (elements) && elements.payload["logo"] || DEFAULT_VALUES["logo"]; 
-                    // elements.feature.src = (elements) && elements.payload["banner"] || DEFAULT_VALUES["banner"]; 
                     window.localStorage.setItem("api", JSON.stringify({elements}));
-                
                 });
-
-            //scrape host url
-            //save to local storage
-
-            log("Error on localStorage!");
-        // }
+        }
     };
     
 
