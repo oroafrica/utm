@@ -75,7 +75,7 @@
                     elements.home.href = (elements) && elements.payload["home"] || DEFAULT_VALUES["home"]; 
                     elements.logo.src = (elements) && elements.payload["logo"] || DEFAULT_VALUES["logo"]; 
                     elements.feature.src = (elements) && elements.payload["banner"] || DEFAULT_VALUES["banner"]; 
-                    window.localStorage.setItem("api", JSON.stringify({elements}))
+                    window.localStorage.setItem("api", JSON.stringify({elements}));
                 
                 });
 
